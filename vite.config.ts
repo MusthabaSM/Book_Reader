@@ -23,6 +23,10 @@ export default defineConfig({
     VitePWA({
       registerType: 'autoUpdate',
       devOptions: { enabled: true },
+      workbox: {
+        globPatterns: ['**/*.{js,css,html,ico,png,svg,mjs,wasm,mp3,webp,avif,jpeg,jpg}'],
+        maximumFileSizeToCacheInBytes: 5 * 1024 * 1024 // 5 MB to allow pdf.worker.mjs
+      },
       manifest: {
         name: 'OHARA Reader',
         short_name: 'OHARA',
