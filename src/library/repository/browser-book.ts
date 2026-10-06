@@ -29,14 +29,14 @@ export class BrowserBookRepository implements BookRepository {
         if (options?.searchQuery) {
             const q = options.searchQuery.toLowerCase();
             filtered = filtered.filter(b => 
-                b.title.toLowerCase().includes(q) || 
-                b.authors.some(a => a.name.toLowerCase().includes(q))
+                (b.title || '').toLowerCase().includes(q) || 
+                (b.authors || []).some(a => (a.displayName || '').toLowerCase().includes(q))
             );
         }
 
         const direction = options?.sortDirection === 'asc' ? 1 : -1;
         filtered.sort((a, b) => {
-            if (options?.sortBy === 'title') return a.title.localeCompare(b.title) * direction;
+            if (options?.sortBy === 'title') return (a.title || '').localeCompare(b.title || '') * direction;
             return ((a.dateAdded || 0) - (b.dateAdded || 0)) * direction;
         });
 
