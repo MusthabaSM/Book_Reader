@@ -9,7 +9,8 @@ import { availableSpineGenres } from './components/library/BookSpine';
 
 // Dependency graph composition
 import { ImporterRegistry } from './formats/importers/registry';
-import { InMemoryBookRepository, InMemoryBookContentRepository } from './library/repository/in-memory';
+import { BrowserBookRepository } from './library/repository/browser-book';
+import { BrowserBookContentRepository } from './library/repository/browser-content';
 import { SQLiteBookRepository } from './library/repository/tauri-sqlite';
 import { TauriBookContentRepository } from './library/repository/tauri-content';
 import { BrowserDocumentStorageRepository } from './library/repository/browser-document';
@@ -205,8 +206,8 @@ function App() {
                 const initialBooks = await service.listBooks(query);
                 setBooks(initialBooks);
             } else {
-                bookRepo = new InMemoryBookRepository();
-                const mockContentRepo = new InMemoryBookContentRepository();
+                bookRepo = new BrowserBookRepository();
+                const browserContentRepo = new BrowserBookContentRepository();
                 const mockDocumentStorage = new BrowserDocumentStorageRepository();
                 const mockCoverStorage = new BrowserCoverStorageRepository();
                 const registry = new ImporterRegistry(mockDocumentStorage);
@@ -223,7 +224,7 @@ function App() {
                     engine.start();
                 }
 
-                const service = new LibraryService(registry, detector, activeBookRepo, mockContentRepo, mockDocumentStorage, mockCoverStorage);
+                const service = new LibraryService(registry, detector, activeBookRepo, browserContentRepo, mockDocumentStorage, mockCoverStorage);
                 setLibraryService(service);
                 const initialBooks = await service.listBooks(query);
                 setBooks(initialBooks);
