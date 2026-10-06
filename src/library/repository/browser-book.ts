@@ -1,5 +1,5 @@
-import { BookRepository } from './index';
-import { Book } from '../models';
+import type { BookRepository } from './index';
+import type { LibraryBook as Book } from '../models';
 import { get, set, del, keys } from 'idb-keyval';
 
 export class BrowserBookRepository implements BookRepository {

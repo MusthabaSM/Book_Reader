@@ -1,5 +1,5 @@
 import type { DocumentStorageRepository, DocumentSource } from './index';
-import { get, set, del, has } from 'idb-keyval';
+import { get, set, del } from 'idb-keyval';
 
 export class BrowserDocumentStorageRepository implements DocumentStorageRepository {
     private urlCache = new Map<string, string>();

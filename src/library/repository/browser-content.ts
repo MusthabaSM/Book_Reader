@@ -1,4 +1,4 @@
-import { BookContentRepository, BookContent } from './index';
+import type { BookContentRepository, BookContent } from './index';
 import { get, set, del } from 'idb-keyval';
 
 export class BrowserBookContentRepository implements BookContentRepository {

@@ -1,5 +1,5 @@
 import type { CoverStorageRepository, CoverArtifact, CoverSource } from './index';
-import { get, set, del, has } from 'idb-keyval';
+import { get, set, del } from 'idb-keyval';
 
 export class BrowserCoverStorageRepository implements CoverStorageRepository {
     private urlCache = new Map<string, string>();
