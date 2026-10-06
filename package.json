@@ -1,0 +1,51 @@
+{
+  "name": "book-reader",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "cross-env NODE_OPTIONS=--max_old_space_size=4096 vite build",
+    "lint": "oxlint",
+    "preview": "vite preview",
+    "postinstall": "node scripts/postinstall.js",
+    "tauri": "tauri"
+  },
+  "dependencies": {
+    "@react-spring/web": "^10.1.2",
+    "@supabase/supabase-js": "^2.117.2",
+    "@tauri-apps/api": "^2.11.1",
+    "@tauri-apps/plugin-fs": "^2.5.1",
+    "@tauri-apps/plugin-sql": "^2.4.0",
+    "@xmldom/xmldom": "^0.9.10",
+    "animejs": "^4.5.0",
+    "gsap": "^3.15.0",
+    "html2canvas": "^1.4.1",
+    "jszip": "^3.10.1",
+    "lenis": "^1.3.26",
+    "motion": "^13.1.0",
+    "pdfjs-dist": "6.2.108",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8",
+    "three": "^0.185.1",
+    "trig-js": "^4.2.1"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.62.1",
+    "@tauri-apps/cli": "^2.12.1",
+    "@types/node": "^24.13.3",
+    "@types/pdfjs-dist": "^2.10.377",
+    "@types/react": "^19.2.17",
+    "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-react": "^6.0.4",
+    "cross-env": "^10.1.0",
+    "happy-dom": "^20.11.2",
+    "oxlint": "^1.75.0",
+    "pdf-lib": "^1.17.1",
+    "playwright": "^1.62.1",
+    "typescript": "~6.0.2",
+    "vite": "^8.2.0",
+    "vite-plugin-static-copy": "^4.1.1",
+    "vitest": "^4.1.10"
+  }
+}

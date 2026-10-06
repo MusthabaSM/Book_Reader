@@ -1,0 +1,69 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-08-11T17:25:00Z",
+  "title": "Design System: Universal Book Reader",
+  "extensions": {
+    "colorMeta": {
+      "primary-light": { "role": "primary", "displayName": "Oxblood", "canonical": "#991B1B", "tonalRamp": ["#4a0d0d", "#7a1515", "#991B1B", "#b82020", "#d62626", "#ed4747", "#f59696", "#fce8e8"] },
+      "primary-dark": { "role": "primary", "displayName": "Brass", "canonical": "#D97706", "tonalRamp": ["#4d2900", "#995304", "#D97706", "#f28b13", "#fb9a28", "#fdb55e", "#fed39b", "#fef3e3"] },
+      "neutral-bg-light": { "role": "neutral", "displayName": "Parchment", "canonical": "#F9F8F6", "tonalRamp": ["#8e8880", "#b5afa6", "#d1ccc4", "#e8e4dc", "#F9F8F6", "#fcfbf9", "#fefdfd", "#ffffff"] },
+      "neutral-bg-dark": { "role": "neutral", "displayName": "Charcoal", "canonical": "#18181B", "tonalRamp": ["#000000", "#0a0a0c", "#18181B", "#27272A", "#3f3f46", "#52525b", "#71717a", "#a1a1aa"] },
+      "text-heading-light": { "role": "neutral", "displayName": "Ink", "canonical": "#1C1917", "tonalRamp": ["#000000", "#0d0b0a", "#1C1917", "#292524", "#44403C", "#57534E", "#78716C", "#A8A29E"] },
+      "text-heading-dark": { "role": "neutral", "displayName": "Off-White", "canonical": "#F4F4F5", "tonalRamp": ["#71717A", "#A1A1AA", "#D4D4D8", "#E4E4E7", "#F4F4F5", "#FAFAFA", "#FCFCFD", "#FFFFFF"] },
+      "border-light": { "role": "neutral", "displayName": "Stone", "canonical": "#E5E0D8", "tonalRamp": ["#78716c", "#a8a29e", "#d6d3d1", "#E5E0D8", "#e7e5e4", "#f5f5f4", "#fafaf9", "#ffffff"] },
+      "border-dark": { "role": "neutral", "displayName": "Slate", "canonical": "#27272A", "tonalRamp": ["#000000", "#09090b", "#18181b", "#27272A", "#3f3f46", "#52525b", "#71717a", "#a1a1aa"] }
+    },
+    "typographyMeta": {
+      "headline": { "displayName": "Headline", "purpose": "Used for top-level page titles and the library hero section." },
+      "body": { "displayName": "Body", "purpose": "Used for general interface copy and descriptions." },
+      "label": { "displayName": "Label", "purpose": "Used for book metadata and control labels." }
+    },
+    "shadows": [
+      { "name": "Card Rest", "value": "rgba(0, 0, 0, 0.08) 0 8px 16px -4px", "purpose": "A subtle ambient shadow giving physical presence to book covers." },
+      { "name": "Card Hover", "value": "rgba(0, 0, 0, 0.15) 0 16px 24px -4px", "purpose": "A sharper, lifted shadow when a book is hovered." }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Primary action button.",
+      "html": "<button class=\"ds-btn-primary\">Upload Book</button>",
+      "css": ".ds-btn-primary { background: #1C1917; color: #F9F8F6; padding: 0.4rem 1rem; font-family: system-ui, sans-serif; font-size: 0.85rem; font-weight: 500; border: none; border-radius: 4px; cursor: pointer; transition: opacity 0.2s, transform 0.2s; } .ds-btn-primary:hover { opacity: 0.9; } .ds-btn-primary:active { transform: scale(0.98); }"
+    },
+    {
+      "name": "Ghost Button",
+      "kind": "button",
+      "refersTo": "button-ghost",
+      "description": "Secondary or subtle action button.",
+      "html": "<button class=\"ds-btn-ghost\">Cancel</button>",
+      "css": ".ds-btn-ghost { background: transparent; color: #44403C; padding: 0.3rem 0.6rem; font-family: system-ui, sans-serif; font-size: 0.85rem; font-weight: 500; border: none; border-radius: 4px; cursor: pointer; transition: color 0.2s, transform 0.2s; } .ds-btn-ghost:hover { color: #1C1917; } .ds-btn-ghost:active { transform: scale(0.98); }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Premium Digital Bookshelf",
+    "overview": "Serene, sophisticated, and focused. It uses typography and spaciousness to create a quiet, literary atmosphere. The design mimics a physical library experience in a digital space, employing a stark but warm aesthetic that foregrounds book covers and reading materials.",
+    "keyCharacteristics": [
+      "High-contrast, typography-led visual hierarchy.",
+      "Seamless Dark/Light mode support tailored to reading environments.",
+      "Generous spacing around book components to emphasize individual works.",
+      "Restrained use of accent colors to guide attention."
+    ],
+    "rules": [
+      { "name": "The Editorial Accent Rule", "body": "The primary accent (Oxblood or Brass) is strictly reserved for interactive states (hover, focus) and critical highlights. It must never be used for structural backgrounds or large surfaces.", "section": "colors" },
+      { "name": "The Serif Authority Rule", "body": "Serif fonts are exclusively used for titles and headings to evoke a printed book. All metadata, buttons, and UI controls must use the sans-serif font.", "section": "typography" },
+      { "name": "The Tactile Book Rule", "body": "Only book covers and primary modal dialogs receive elevation shadows. UI controls, buttons, and structural headers remain strictly flat.", "section": "elevation" }
+    ],
+    "dos": [
+      "Do rely on generous whitespace and typography for visual hierarchy rather than dividing lines or background boxes.",
+      "Do ensure every book card remains fully self-contained without text bleeding into neighboring columns.",
+      "Do test all color assignments in both light and dark modes via CSS variables."
+    ],
+    "donts": [
+      "Don't introduce new colors beyond the established Parchment/Ink/Oxblood (and their dark mode equivalents) palette.",
+      "Don't use position: absolute for elements that replace grid items (e.g., forms), as it breaks the responsive grid flow.",
+      "Don't use serif fonts for interactive UI controls."
+    ]
+  }
+}
